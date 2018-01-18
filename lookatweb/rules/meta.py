@@ -1,0 +1,231 @@
+from .consts import *
+
+# Rules to match meta keys
+META_RULES = [
+    {'type' : RULETYPE_EQUAL, 'text' : 'verify-v1',
+        'entities' : [
+            {'name' : 'site:webmaster/google'}
+        ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'wot-verification',
+     'entities' : [
+         {'name' : 'page:meta/weboftrust'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'twitter:card',
+     'entities' : [
+         {'name' : 'page:meta/twittercard'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'twitter:image',
+     'entities' : [
+         {'name' : 'page:meta/twittercard'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'twitter:url',
+     'entities' : [
+         {'name' : 'page:meta/twittercard'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'twitter:title',
+     'entities' : [
+         {'name' : 'page:meta/twittercard'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'twitter:description',
+     'entities' : [
+         {'name' : 'page:meta/twittercard'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'twitter:site',
+     'entities' : [
+         {'name' : 'page:meta/twittercard'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'twitter:creator',
+     'entities' : [
+         {'name' : 'page:meta/twittercard'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'msapplication-task',
+     'entities' : [
+         {'name' : 'page:meta/mspinnedsite'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'msapplication-starturl',
+     'entities' : [
+         {'name' : 'page:meta/mspinnedsite'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'msapplication-tooltip',
+     'entities' : [
+         {'name' : 'page:meta/mspinnedsite'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'mrc__share_description',
+     'entities' : [
+         {'name' : 'page:meta/mailrubutton'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'SKYPE_TOOLBAR',
+     'entities' : [
+         {'name' : 'page:meta/skypetoolbar'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'yandex-verification',
+        'entities' : [
+            {'name' : 'site:webmaster/yandex'}
+        ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'google-site-verification',
+        'entities' : [
+            {'name' : 'site:webmaster/google'}
+        ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'y_key',
+        'entities' : [
+            {'name' : 'site:webmaster/yahoo'}
+        ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'webmoney.attestation.label',
+        'entities' : [
+            {'name' : 'site:info/webmoney_att'}
+        ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'keywords',
+        'entities' : [
+            {'name' : 'page:meta/keywords'}
+        ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'description',
+        'entities' : [
+            {'name' : 'page:meta/description'}
+        ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'robots',
+        'entities' : [
+            {'name' : 'page:meta/robots'}
+        ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'generator', 'action' : ACTION_FOLLOW, 'matcherkey' : 'r:web:generator',
+        'entities' : [
+            {'name' : 'page:meta/generator'}
+        ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'copyright', 'action' : ACTION_FOLLOW, 'matcherkey' : 'r:web:meta_copy',
+        'entities' : [
+            {'name' : 'page:meta/copyright'}
+        ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'author',
+        'entities' : [
+            {'name' : 'page:meta/author'}
+        ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'revisit-after',
+        'entities' : [
+            {'name' : 'page:meta/revisit'}
+        ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'rating',
+        'entities' : [
+            {'name' : 'page:meta/rating'}
+        ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'language',
+        'entities' : [
+            {'name' : 'page:meta/language'}
+        ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'googlebot',
+        'entities' : [
+            {'name' : 'page:meta/googlebot'}
+        ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'dc.language',
+        'entities' : [
+            {'name' : 'page:meta/dc.language'}
+        ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'dc.subject',
+        'entities' : [
+            {'name' : 'page:meta/dc.subject'}
+        ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'audience',
+        'entities' : [
+            {'name' : 'page:meta/audience'}
+        ]
+    },
+
+]
+
+
+META_COPYRIGHT_RULES = [
+    {'type' : RULETYPE_REGEXP, 'text' : 'SLAED CMS',
+        'entities' : [
+            {'name' : 'web:cms/slaedcms'},
+            {'name' : 'web:tech:lang/php'},
+        ]
+    },
+    {'type' : RULETYPE_REGEXP, 'text' : 'phpBB Group$',
+        'entities' : [
+            {'name' : 'web:cms/phpBB'},
+            {'name' : 'web:tech:lang/php'},
+            {'name' : 'site:classify/phpbb'},
+        ]
+    },
+    {'type' : RULETYPE_REGEXP, 'text' : '^Generated by InfoDesigner',
+        'entities' : [
+            {'name' : 'web:cms/infodesigner'},
+        ]
+    },
+]
+
+
+METAPROPERTY_RULES = [
+    {'type' : RULETYPE_EQUAL, 'text' : 'og:title',
+     'entities' : [
+         {'name' : 'page:meta/opengraph'},
+         {'name' : 'page:opengraph/title'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'og:type',
+     'entities' : [
+         {'name' : 'page:meta/opengraph'},
+         {'name' : 'page:opengraph/type'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'og:image',
+     'entities' : [
+         {'name' : 'page:meta/opengraph'},
+         {'name' : 'page:opengraph/image'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'og:url',
+     'entities' : [
+         {'name' : 'page:meta/opengraph'},
+         {'name' : 'page:opengraph/url'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'og:audio',
+     'entities' : [
+         {'name' : 'page:meta/opengraph'},
+         {'name' : 'page:opengraph/audio'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'og:description',
+     'entities' : [
+         {'name' : 'page:meta/opengraph'},
+         {'name' : 'page:opengraph/description'}
+     ]
+    },
+    {'type' : RULETYPE_EQUAL, 'text' : 'og:locale',
+     'entities' : [
+         {'name' : 'page:meta/opengraph'},
+         {'name' : 'page:opengraph/locale'}
+     ]
+    },
+
+]
+

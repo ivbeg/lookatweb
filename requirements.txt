@@ -1,0 +1,4 @@
+lxml
+pycurl
+dnspython
+bs4
