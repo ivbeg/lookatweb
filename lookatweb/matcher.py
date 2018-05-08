@@ -72,7 +72,7 @@ class RuleMatcher:
             if rule['type'] == RULETYPE_EQUAL:
                 self.textrules[rule['text']] = rule
             elif rule['type'] == RULETYPE_REGEXP:
-                rule['re'] = re.compile(rule['text'], re.I|re.M|re.L)
+                rule['re'] = re.compile(rule['text'], re.I|re.M)
                 self.rerules.append(rule)
             elif rule['type'] == RULETYPE_FIND:
                 self.findrules[rule['text']] = rule
